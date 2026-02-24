@@ -19,12 +19,15 @@ export default function CaseStudiesPage() {
                     <div className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-brand-gradient-end/10 blur-3xl" />
                 </div>
                 <Container className="relative">
-                    <SectionHeading
-                        label="Case Studies"
-                        title="Stories worth telling"
-                        description="Every project starts with a real problem. Here's how we helped turn challenges into meaningful outcomes."
-                        dark
-                    />
+                    <div className="max-w-3xl mx-auto text-center">
+                        <p className="text-sm font-semibold uppercase tracking-widest text-brand-accent-light mb-6">
+                            Case Studies
+                        </p>
+                        <h1>Stories worth telling</h1>
+                        <p className="mt-6 text-xl text-[var(--color-text-on-dark-muted)] leading-relaxed">
+                            Every project starts with a real problem. Here&apos;s how we helped turn challenges into meaningful outcomes.
+                        </p>
+                    </div>
                 </Container>
             </section>
 
