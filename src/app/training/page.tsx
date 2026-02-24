@@ -47,12 +47,16 @@ export default function TrainingPage() {
     return (
         <>
             {/* Hero */}
-            <section className="section-padding bg-brand-surface-alt">
-                <Container>
+            <section className="section-padding bg-brand-surface-dark text-[var(--color-text-on-dark)] relative overflow-hidden">
+                <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+                    <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-brand-accent/10 blur-3xl" />
+                </div>
+                <Container className="relative">
                     <SectionHeading
                         label="Training"
                         title="Learn by building real things"
                         description="Our training programs are rooted in actual project needs — your team walks away with skills they can apply immediately."
+                        dark
                     />
                 </Container>
             </section>
