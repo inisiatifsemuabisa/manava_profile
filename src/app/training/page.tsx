@@ -47,17 +47,17 @@ export default function TrainingPage() {
     return (
         <>
             {/* Hero */}
-            <section className="section-padding bg-brand-surface-dark text-[var(--color-text-on-dark)] relative overflow-hidden">
+            <section className="section-padding bg-black text-white relative overflow-hidden">
                 <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-                    <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-brand-accent/10 blur-3xl" />
+                    <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-brand-accent/8 blur-[120px]" />
                 </div>
                 <Container className="relative">
                     <div className="max-w-3xl mx-auto text-center">
-                        <p className="text-sm font-semibold uppercase tracking-widest text-brand-accent-light mb-6">
+                        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-accent mb-6">
                             Training
                         </p>
                         <h1>Learn by building real things</h1>
-                        <p className="mt-6 text-xl text-[var(--color-text-on-dark-muted)] leading-relaxed">
+                        <p className="mt-6 text-xl text-white/50 leading-relaxed">
                             Our training programs are rooted in actual project needs — your team walks away with skills they can apply immediately.
                         </p>
                     </div>
@@ -65,11 +65,11 @@ export default function TrainingPage() {
             </section>
 
             {/* How We Train */}
-            <section className="section-padding">
+            <section className="section-padding bg-[#0a0a0a]">
                 <Container>
                     <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
                         <div>
-                            <p className="text-sm font-semibold uppercase tracking-widest text-brand-accent mb-3">
+                            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">
                                 Our Approach
                             </p>
                             <h2 className="mb-6">How we train</h2>
@@ -84,11 +84,11 @@ export default function TrainingPage() {
                         </div>
                         <div className="space-y-4">
                             {["Discovery call to understand needs", "Custom curriculum design", "Hands-on workshops (2–5 days)", "Follow-up mentoring & code review"].map((step, i) => (
-                                <div key={step} className="flex items-center gap-4 p-4 rounded-xl bg-brand-surface-alt border border-brand-border">
+                                <div key={step} className="flex items-center gap-4 p-4 rounded-xl bg-[#121212] border border-white/10">
                                     <span className="w-10 h-10 rounded-lg bg-brand-accent text-white flex items-center justify-center font-bold text-sm shrink-0">
                                         {i + 1}
                                     </span>
-                                    <span className="text-[var(--color-text-primary)] font-medium">{step}</span>
+                                    <span className="text-white font-medium">{step}</span>
                                 </div>
                             ))}
                         </div>
@@ -97,7 +97,7 @@ export default function TrainingPage() {
             </section>
 
             {/* Training Topics */}
-            <section className="section-padding bg-brand-surface-alt">
+            <section className="section-padding bg-black">
                 <Container>
                     <SectionHeading
                         label="Topics"
@@ -111,7 +111,7 @@ export default function TrainingPage() {
                                 <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed mb-4">
                                     {topic.description}
                                 </p>
-                                <p className="text-xs font-medium text-[var(--color-text-muted)] uppercase tracking-wider">
+                                <p className="text-xs font-medium text-white/30 uppercase tracking-wider">
                                     For: {topic.audience}
                                 </p>
                             </Card>
@@ -121,13 +121,13 @@ export default function TrainingPage() {
             </section>
 
             {/* CTA */}
-            <section className="section-padding bg-brand-surface-dark text-[var(--color-text-on-dark)] text-center">
+            <section className="section-padding bg-brand-accent text-white text-center">
                 <Container>
-                    <h2 className="mb-4">Ready to upskill your team?</h2>
-                    <p className="text-lg text-[var(--color-text-on-dark-muted)] max-w-xl mx-auto mb-8">
+                    <h2 className="mb-4 text-white">Ready to upskill your team?</h2>
+                    <p className="text-lg text-white/80 max-w-xl mx-auto mb-8">
                         Tell us about your team and goals — we&apos;ll design a program that fits.
                     </p>
-                    <Button href="/contact/" size="lg">
+                    <Button href="/contact/" size="lg" variant="inverted">
                         Start a Conversation
                     </Button>
                 </Container>

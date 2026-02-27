@@ -3,21 +3,20 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { navigation, siteConfig } from "@/content/site";
+import { navigation } from "@/content/site";
 import MobileNav from "./MobileNav";
+import Logo from "@/components/ui/Logo";
 
 export default function Header() {
     const [mobileOpen, setMobileOpen] = useState(false);
     const pathname = usePathname();
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 border-b border-brand-border bg-white/80 backdrop-blur-xl">
+        <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-black/60 backdrop-blur-xl">
             <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
                 {/* Logo */}
-                <Link href="/" className="flex items-center gap-2 group">
-                    <span className="text-xl font-bold tracking-tight text-brand-primary group-hover:text-brand-accent transition-colors duration-200">
-                        {siteConfig.name}
-                    </span>
+                <Link href="/" className="flex items-center">
+                    <Logo size="md" />
                 </Link>
 
                 {/* Desktop Navigation */}
@@ -29,8 +28,8 @@ export default function Header() {
                                 key={item.href}
                                 href={item.href}
                                 className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${isActive
-                                        ? "text-brand-accent bg-brand-accent/5"
-                                        : "text-[var(--color-text-secondary)] hover:text-brand-primary hover:bg-brand-surface-alt"
+                                    ? "text-brand-accent"
+                                    : "text-white/70 hover:text-white"
                                     }`}
                             >
                                 {item.label}
@@ -39,22 +38,22 @@ export default function Header() {
                     })}
                     <Link
                         href="/contact/"
-                        className="ml-2 px-5 py-2 text-sm font-semibold text-white bg-brand-accent hover:bg-brand-accent-hover rounded-lg transition-all duration-200 shadow-sm hover:shadow-md"
+                        className="ml-2 px-5 py-2 text-sm font-semibold text-white bg-brand-accent hover:bg-brand-accent-hover rounded-lg transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-brand-accent/20"
                     >
-                        Talk to Us
+                        Contact Us
                     </Link>
                 </nav>
 
                 {/* Mobile Hamburger */}
                 <button
                     type="button"
-                    className="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg hover:bg-brand-surface-alt transition-colors"
+                    className="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg hover:bg-white/10 transition-colors"
                     onClick={() => setMobileOpen(true)}
                     aria-label="Open menu"
                 >
-                    <span className="block w-5 h-0.5 bg-brand-primary mb-1" />
-                    <span className="block w-5 h-0.5 bg-brand-primary mb-1" />
-                    <span className="block w-3.5 h-0.5 bg-brand-primary" />
+                    <span className="block w-5 h-0.5 bg-white mb-1" />
+                    <span className="block w-5 h-0.5 bg-white mb-1" />
+                    <span className="block w-3.5 h-0.5 bg-white" />
                 </button>
             </div>
 

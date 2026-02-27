@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { type ReactNode } from "react";
-import Card from "@/components/ui/Card";
 import type { Service } from "@/content/services";
 
 const iconMap: Record<string, ReactNode> = {
@@ -24,16 +23,47 @@ const iconMap: Record<string, ReactNode> = {
             <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.627 48.627 0 0 1 12 20.904a48.627 48.627 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15v-3.75m0 0h10.5" />
         </svg>
     ),
+    productivity: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5m.75-9 3-3 2.148 2.148A12.061 12.061 0 0 1 16.5 7.605" />
+        </svg>
+    ),
 };
 
 type ServiceCardProps = {
     service: Service;
     index?: number;
+    highlighted?: boolean;
 };
 
-export default function ServiceCard({ service, index = 0 }: ServiceCardProps) {
+export default function ServiceCard({ service, index = 0, highlighted = false }: ServiceCardProps) {
+    if (highlighted) {
+        return (
+            <div className={`rounded-2xl bg-brand-accent p-6 lg:p-8 transition-all duration-300 hover:shadow-lg hover:shadow-brand-accent/20 hover:-translate-y-1 opacity-0 animate-fade-in-up animation-delay-${(index + 1) * 100}`}>
+                <div className="flex flex-col h-full">
+                    <div className="w-14 h-14 rounded-xl bg-white/20 text-white flex items-center justify-center mb-6">
+                        {iconMap[service.icon] || iconMap.code}
+                    </div>
+                    <h3 className="mb-2 text-white">{service.title}</h3>
+                    <p className="text-white/80 mb-4 flex-1">
+                        {service.shortDescription}
+                    </p>
+                    <Link
+                        href={`/services/#${service.id}`}
+                        className="inline-flex items-center gap-1 text-sm font-semibold text-white hover:gap-2 transition-all"
+                    >
+                        Learn more
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                        </svg>
+                    </Link>
+                </div>
+            </div>
+        );
+    }
+
     return (
-        <Card className={`opacity-0 animate-fade-in-up animation-delay-${(index + 1) * 100}`}>
+        <div className={`rounded-2xl border border-white/10 bg-[#121212] p-6 lg:p-8 transition-all duration-300 hover:border-brand-accent/30 hover:shadow-lg hover:shadow-brand-accent/5 hover:-translate-y-1 opacity-0 animate-fade-in-up animation-delay-${(index + 1) * 100}`}>
             <div className="flex flex-col h-full">
                 <div className="w-14 h-14 rounded-xl bg-brand-accent/10 text-brand-accent flex items-center justify-center mb-6">
                     {iconMap[service.icon] || iconMap.code}
@@ -44,7 +74,7 @@ export default function ServiceCard({ service, index = 0 }: ServiceCardProps) {
                 </p>
                 <Link
                     href={`/services/#${service.id}`}
-                    className="inline-flex items-center gap-1 text-sm font-semibold text-brand-accent hover:text-brand-accent-hover transition-colors"
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-brand-accent hover:text-brand-accent-hover hover:gap-2 transition-all"
                 >
                     Learn more
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -52,6 +82,6 @@ export default function ServiceCard({ service, index = 0 }: ServiceCardProps) {
                     </svg>
                 </Link>
             </div>
-        </Card>
+        </div>
     );
 }

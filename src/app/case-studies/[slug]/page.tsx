@@ -33,9 +33,9 @@ export default async function CaseStudyDetailPage({ params }: Props) {
     return (
         <>
             {/* Header */}
-            <section className="section-padding bg-brand-surface-dark text-[var(--color-text-on-dark)] relative overflow-hidden">
+            <section className="section-padding bg-black text-white relative overflow-hidden">
                 <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-                    <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-brand-accent/10 blur-3xl" />
+                    <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-brand-accent/8 blur-[120px]" />
                 </div>
                 <Container className="relative">
                     <div className="max-w-3xl mx-auto text-center">
@@ -43,18 +43,18 @@ export default async function CaseStudyDetailPage({ params }: Props) {
                             <Badge variant="accent">{cs.category}</Badge>
                         </div>
                         <h1 className="mb-3">{cs.title}</h1>
-                        <p className="text-xl text-[var(--color-text-on-dark-muted)]">{cs.client}</p>
+                        <p className="text-xl text-white/50">{cs.client}</p>
                     </div>
                 </Container>
             </section>
 
             {/* Problem → Solution → Impact */}
-            <section className="section-padding">
+            <section className="section-padding bg-[#0a0a0a]">
                 <Container>
                     <div className="max-w-3xl mx-auto space-y-16">
                         {/* Problem */}
                         <div>
-                            <p className="text-sm font-semibold uppercase tracking-widest text-brand-accent mb-3">
+                            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">
                                 The Problem
                             </p>
                             <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed">
@@ -64,7 +64,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
 
                         {/* Solution */}
                         <div>
-                            <p className="text-sm font-semibold uppercase tracking-widest text-brand-accent mb-3">
+                            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">
                                 Our Solution
                             </p>
                             <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed">
@@ -74,7 +74,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
 
                         {/* Impact */}
                         <div>
-                            <p className="text-sm font-semibold uppercase tracking-widest text-brand-accent mb-3">
+                            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">
                                 The Impact
                             </p>
                             <ul className="space-y-3">
@@ -98,7 +98,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
                         {/* Tech Stack */}
                         {cs.techStack && cs.techStack.length > 0 && (
                             <div>
-                                <p className="text-sm font-semibold uppercase tracking-widest text-[var(--color-text-muted)] mb-3">
+                                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/40 mb-3">
                                     Technology Stack
                                 </p>
                                 <div className="flex flex-wrap gap-2">
@@ -113,7 +113,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
             </section>
 
             {/* CTA */}
-            <section className="section-padding bg-brand-surface-alt text-center">
+            <section className="section-padding bg-black text-center">
                 <Container>
                     <h2 className="mb-4">Have a similar challenge?</h2>
                     <p className="text-lg text-[var(--color-text-secondary)] max-w-xl mx-auto mb-8">
@@ -123,8 +123,8 @@ export default async function CaseStudyDetailPage({ params }: Props) {
                         <Button href="/contact/" size="lg">
                             Talk to Us
                         </Button>
-                        <Button href="/case-studies/" variant="secondary" size="lg">
-                            More Case Studies
+                        <Button href="/case-studies/" variant="outline" size="lg">
+                            More Projects
                         </Button>
                     </div>
                 </Container>

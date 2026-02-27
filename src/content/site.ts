@@ -7,10 +7,11 @@ export const siteConfig = {
     name: "10Labs",
     legalName: "PT Inisiatif Semua Bisa",
     tagline: "Manava Collective",
-    heroHeadline: "Engineering solutions, empowering people.",
+    heroHeadline: "Engineering Solutions, Empowering People.",
     heroDescription:
         "10Labs membantu bisnis bergerak lebih cepat lewat arah teknologi, solusi, dan people enablement.",
-    contactEmail: "hello@10labs.id",
+    contactEmail: "-",
+    contactPhone: "-",
     typeformUrl: "#", // TODO: Replace with actual Typeform URL
     address: {
         company: "PT Inisiatif Semua Bisa",
@@ -20,11 +21,9 @@ export const siteConfig = {
 
 export const navigation: NavItem[] = [
     { label: "Home", href: "/" },
-    { label: "Services", href: "/services/" },
-    { label: "Case Studies", href: "/case-studies/" },
-    { label: "Training", href: "/training/" },
     { label: "About", href: "/about/" },
-    { label: "Contact", href: "/contact/" },
+    { label: "Services", href: "/services/" },
+    { label: "Projects", href: "/case-studies/" },
 ];
 
 export const footerLinks = {

@@ -13,29 +13,29 @@ export default function HomePage() {
   return (
     <>
       {/* ═══ Hero ═══ */}
-      <section className="relative overflow-hidden bg-brand-surface-dark text-[var(--color-text-on-dark)]">
+      <section className="relative overflow-hidden bg-black text-white">
         {/* Gradient orbs */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-          <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-brand-accent/10 blur-3xl" />
-          <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-brand-gradient-end/10 blur-3xl" />
+          <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-brand-accent/8 blur-[120px]" />
+          <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] rounded-full bg-brand-gradient-end/5 blur-[100px]" />
         </div>
 
         <Container className="relative section-padding">
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest text-brand-accent-light mb-6 animate-fade-in">
+          <div className="max-w-4xl mx-auto text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-accent mb-6 animate-fade-in">
               {siteConfig.tagline}
             </p>
             <h1 className="mb-6 animate-fade-in-up">
-              <span className="gradient-text">{siteConfig.heroHeadline}</span>
+              {siteConfig.heroHeadline}
             </h1>
-            <p className="text-lg md:text-xl text-[var(--color-text-on-dark-muted)] leading-relaxed mb-10 max-w-2xl mx-auto opacity-0 animate-fade-in-up animation-delay-200">
+            <p className="text-lg md:text-xl text-white/50 leading-relaxed mb-10 max-w-2xl mx-auto opacity-0 animate-fade-in-up animation-delay-200">
               {siteConfig.heroDescription}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in-up animation-delay-300">
               <Button href="/contact/" size="lg">
                 Start a Conversation
               </Button>
-              <Button href="/case-studies/" variant="ghost" size="lg" className="border border-white/20 text-white hover:bg-white/10 hover:border-white/40 hover:text-white">
+              <Button href="/case-studies/" variant="outline" size="lg">
                 View Our Work
               </Button>
             </div>
@@ -43,38 +43,8 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* ═══ Philosophy: 10 & Labs ═══ */}
-      <section className="section-padding bg-brand-surface-alt">
-        <Container>
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-widest text-brand-accent mb-3">
-                Our Philosophy
-              </p>
-              <h2 className="mb-6">
-                <span className="gradient-text">10</span> &amp; Labs
-              </h2>
-              <p className="text-[var(--color-text-secondary)] text-lg leading-relaxed mb-4">
-                <strong className="text-brand-primary">10</strong> represents completeness — the full spectrum of what it takes to deliver meaningful technology: strategy, design, engineering, and people.
-              </p>
-              <p className="text-[var(--color-text-secondary)] text-lg leading-relaxed">
-                <strong className="text-brand-primary">Labs</strong> reflects our approach — experimental, hands-on, and always learning. We treat every project as a lab where solutions are discovered through practice, not theory alone.
-              </p>
-            </div>
-            <div className="relative">
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-brand-accent/10 to-brand-gradient-end/10 border border-brand-border flex items-center justify-center">
-                <div className="text-center">
-                  <span className="text-8xl font-black gradient-text">10</span>
-                  <p className="text-2xl font-bold text-brand-primary mt-2">Labs</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* ═══ Services Overview ═══ */}
-      <section className="section-padding">
+      {/* ═══ What We Do ═══ */}
+      <section className="section-padding bg-[#0a0a0a]">
         <Container>
           <SectionHeading
             label="What We Do"
@@ -83,14 +53,48 @@ export default function HomePage() {
           />
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
-              <ServiceCard key={service.id} service={service} index={index} />
+              <ServiceCard
+                key={service.id}
+                service={service}
+                index={index}
+                highlighted={service.id === "outsourcing"}
+              />
             ))}
           </div>
         </Container>
       </section>
 
-      {/* ═══ Credentials Preview ═══ */}
-      <section className="section-padding bg-brand-surface-alt">
+      {/* ═══ Our Work Process ═══ */}
+      <section className="section-padding bg-black">
+        <Container>
+          <SectionHeading
+            label="Our Process"
+            title="How we deliver results"
+            description="A proven methodology that ensures quality delivery every time."
+          />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { step: "01", title: "Discovery", desc: "We dive deep into your challenges, goals, and constraints to fully understand what success looks like." },
+              { step: "02", title: "Plan", desc: "We map out the approach, define milestones, and align on the technology and team structure." },
+              { step: "03", title: "Build", desc: "We execute with precision — iterating fast, shipping often, and keeping you in the loop." },
+              { step: "04", title: "Deliver", desc: "We hand off with care — documentation, training, and ongoing support to ensure lasting impact." },
+            ].map((item) => (
+              <div key={item.step} className="text-center group">
+                <div className="w-16 h-16 rounded-2xl bg-brand-accent/10 text-brand-accent flex items-center justify-center mx-auto mb-5 text-xl font-bold group-hover:bg-brand-accent group-hover:text-white transition-all duration-300">
+                  {item.step}
+                </div>
+                <h3 className="text-lg mb-2">{item.title}</h3>
+                <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ═══ Featured Projects ═══ */}
+      <section className="section-padding bg-[#0a0a0a]">
         <Container>
           <SectionHeading
             label="Our Work"
@@ -103,24 +107,24 @@ export default function HomePage() {
             ))}
           </div>
           <div className="mt-10 text-center">
-            <Button href="/case-studies/" variant="secondary" size="lg">
-              View All Case Studies
+            <Button href="/case-studies/" variant="outline" size="lg">
+              View All Projects
             </Button>
           </div>
         </Container>
       </section>
 
       {/* ═══ CTA Block ═══ */}
-      <section className="section-padding bg-brand-surface-dark text-[var(--color-text-on-dark)] relative overflow-hidden">
+      <section className="section-padding bg-brand-accent relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-brand-accent/5 blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-white/5 blur-[120px]" />
         </div>
         <Container className="relative text-center">
-          <h2 className="mb-4">Ready to build something meaningful?</h2>
-          <p className="text-lg text-[var(--color-text-on-dark-muted)] max-w-xl mx-auto mb-8">
+          <h2 className="mb-4 text-white">Ready to transform?</h2>
+          <p className="text-lg text-white/80 max-w-xl mx-auto mb-8">
             Whether you need strategic guidance, a dedicated team, or a full product build — let&apos;s start a conversation.
           </p>
-          <Button href="/contact/" size="lg">
+          <Button href="/contact/" size="lg" variant="inverted">
             Talk to Us
           </Button>
         </Container>

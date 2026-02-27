@@ -15,17 +15,17 @@ export default function ServicesPage() {
     return (
         <>
             {/* Hero */}
-            <section className="section-padding bg-brand-surface-dark text-[var(--color-text-on-dark)] relative overflow-hidden">
+            <section className="section-padding bg-black text-white relative overflow-hidden">
                 <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-                    <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-brand-accent/10 blur-3xl" />
+                    <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-brand-accent/8 blur-[120px]" />
                 </div>
                 <Container className="relative">
                     <div className="max-w-3xl mx-auto text-center">
-                        <p className="text-sm font-semibold uppercase tracking-widest text-brand-accent-light mb-6">
+                        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-accent mb-6">
                             Services
                         </p>
                         <h1>What we bring to the table</h1>
-                        <p className="mt-6 text-xl text-[var(--color-text-on-dark-muted)] leading-relaxed">
+                        <p className="mt-6 text-xl text-white/50 leading-relaxed">
                             From strategic advisory to hands-on engineering — we help organizations navigate technology with confidence.
                         </p>
                     </div>
@@ -37,12 +37,12 @@ export default function ServicesPage() {
                 <section
                     key={service.id}
                     id={service.id}
-                    className={`section-padding ${index % 2 === 0 ? "" : "bg-brand-surface-alt"}`}
+                    className={`section-padding ${index % 2 === 0 ? "bg-[#0a0a0a]" : "bg-black"}`}
                 >
                     <Container>
                         <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
                             <div>
-                                <p className="text-sm font-semibold uppercase tracking-widest text-brand-accent mb-3">
+                                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-accent mb-3">
                                     {String(index + 1).padStart(2, "0")}
                                 </p>
                                 <h2 className="mb-4">{service.title}</h2>
@@ -50,8 +50,8 @@ export default function ServicesPage() {
                                     {service.description}
                                 </p>
                             </div>
-                            <Card hover={false} className="bg-brand-surface-alt">
-                                <h4 className="mb-4 text-[var(--color-text-muted)] uppercase tracking-wider text-xs font-semibold">
+                            <Card hover={false}>
+                                <h4 className="mb-4 text-white/40 uppercase tracking-wider text-xs font-semibold">
                                     Key Areas
                                 </h4>
                                 <ul className="space-y-3">
@@ -80,13 +80,13 @@ export default function ServicesPage() {
             ))}
 
             {/* CTA */}
-            <section className="section-padding bg-brand-surface-dark text-[var(--color-text-on-dark)] text-center">
+            <section className="section-padding bg-brand-accent text-white text-center">
                 <Container>
-                    <h2 className="mb-4">Not sure where to start?</h2>
-                    <p className="text-lg text-[var(--color-text-on-dark-muted)] max-w-xl mx-auto mb-8">
+                    <h2 className="mb-4 text-white">Not sure where to start?</h2>
+                    <p className="text-lg text-white/80 max-w-xl mx-auto mb-8">
                         Tell us about your challenge and we&apos;ll help you figure out the right approach — no commitment required.
                     </p>
-                    <Button href="/contact/" size="lg">
+                    <Button href="/contact/" size="lg" variant="inverted">
                         Start a Conversation
                     </Button>
                 </Container>

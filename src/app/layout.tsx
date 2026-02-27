@@ -12,13 +12,13 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "10Labs — Engineering solutions, empowering people.",
+    default: "10Labs — Engineering Solutions, Empowering People.",
     template: "%s | 10Labs",
   },
   description:
     "10Labs membantu bisnis bergerak lebih cepat lewat arah teknologi, solusi, dan people enablement.",
   openGraph: {
-    title: "10Labs — Engineering solutions, empowering people.",
+    title: "10Labs — Engineering Solutions, Empowering People.",
     description:
       "10Labs membantu bisnis bergerak lebih cepat lewat arah teknologi, solusi, dan people enablement.",
     siteName: "10Labs",
@@ -37,8 +37,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className={inter.variable}>
-      <body className="antialiased">
+    <html lang="id" className={`${inter.variable} dark`}>
+      <body className="antialiased bg-black">
         <Header />
         <main className="pt-16">{children}</main>
         <Footer />

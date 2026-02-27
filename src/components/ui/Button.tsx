@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { type ComponentPropsWithoutRef } from "react";
 
-type ButtonVariant = "primary" | "secondary" | "ghost" | "outline";
+type ButtonVariant = "primary" | "secondary" | "ghost" | "outline" | "inverted";
 type ButtonSize = "sm" | "md" | "lg";
 
 type ButtonBaseProps = {
@@ -24,13 +24,15 @@ type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const variantStyles: Record<ButtonVariant, string> = {
     primary:
-        "bg-brand-accent text-white hover:bg-brand-accent-hover shadow-sm hover:shadow-md",
+        "bg-brand-accent text-white hover:bg-brand-accent-hover shadow-sm hover:shadow-lg hover:shadow-brand-accent/20",
     secondary:
-        "bg-brand-surface-alt text-brand-primary border border-brand-border hover:bg-brand-surface hover:border-brand-accent/30",
+        "bg-[#1a1a1a] text-white border border-white/10 hover:border-brand-accent/30 hover:bg-[#222]",
     ghost:
-        "text-[var(--color-text-secondary)] hover:text-brand-primary hover:bg-brand-surface-alt",
+        "text-white/70 hover:text-white hover:bg-white/5",
     outline:
-        "border border-brand-border text-brand-primary hover:border-brand-accent hover:text-brand-accent",
+        "border border-white/20 text-white hover:border-brand-accent hover:text-brand-accent",
+    inverted:
+        "bg-white text-[#FF5C00] hover:bg-white/90 shadow-sm",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
@@ -45,7 +47,7 @@ export default function Button({
     className = "",
     ...props
 }: ButtonProps) {
-    const baseClasses = `inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
+    const baseClasses = `inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
 
     if ("href" in props && props.href) {
         const { href, ...linkProps } = props as ButtonAsLink;

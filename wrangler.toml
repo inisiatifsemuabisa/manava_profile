@@ -1,0 +1,9 @@
+name = "manava"
+compatibility_date = "2024-12-01"
+
+# Cloudflare Pages static site deployment
+# The site is built as a static export from Next.js (output: "export")
+# Build output goes to the "out" directory
+
+[site]
+bucket = "./out"

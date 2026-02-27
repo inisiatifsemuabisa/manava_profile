@@ -12,7 +12,6 @@ export default function SectionHeading({
     title,
     description,
     align = "center",
-    dark = false,
     className = "",
 }: SectionHeadingProps) {
     return (
@@ -21,21 +20,13 @@ export default function SectionHeading({
                 } ${className}`}
         >
             {label && (
-                <p
-                    className={`text-sm font-semibold uppercase tracking-widest mb-3 ${dark ? "text-brand-accent-light" : "text-brand-accent"
-                        }`}
-                >
+                <p className="text-sm font-semibold uppercase tracking-widest mb-3 text-brand-accent">
                     {label}
                 </p>
             )}
             <h2>{title}</h2>
             {description && (
-                <p
-                    className={`mt-4 text-lg leading-relaxed ${dark
-                            ? "text-[var(--color-text-on-dark-muted)]"
-                            : "text-[var(--color-text-secondary)]"
-                        }`}
-                >
+                <p className="mt-4 text-lg leading-relaxed text-[var(--color-text-secondary)]">
                     {description}
                 </p>
             )}
